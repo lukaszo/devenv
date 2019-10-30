@@ -1,0 +1,84 @@
+#!/bin/bash
+
+YAKUAKE="qdbus org.kde.yakuake"
+
+#New tab
+function ntab()
+{
+	name="$1"
+	cmd="$2"
+	$YAKUAKE /yakuake/sessions addSession
+	session_id=`$YAKUAKE /yakuake/sessions activeSessionId`
+
+	if [ -n "$name" ]; then
+		$YAKUAKE /yakuake/tabs setTabTitle "${session_id}" "${name}"
+	fi
+
+	if [ -n "$cmd" ]; then
+		$YAKUAKE /yakuake/sessions runCommand "$cmd"
+	fi
+}
+
+#opens ssh connection in new tab
+function tssh
+{
+	ip="$1"
+	user="$2"
+	port="$3"
+	
+	if [ -z "$ip" ]; then
+		echo "IP address needed!"
+		exit 1
+	fi
+
+	if [ -z "$user" ]; then
+		user=root
+	fi
+
+	if [ -z "$port" ]; then
+		port=22
+	fi
+
+	ntab $ip "ssh $user@$ip -p $port"
+}
+
+#opens ssh connection in current tab
+function ssh
+{
+	ip="$1"
+	user="$2"
+	port="$3"
+	
+	if [ -z "$ip" ]; then
+		echo "IP address needed!"
+		exit 1
+	fi
+
+	if [ -z "$user" ]; then
+		user=root
+	fi
+
+	if [ -z "$port" ]; then
+		port=22
+	fi
+	
+	cname "$ip"
+	$YAKUAKE /yakuake/sessions runCommand "ssh $user@$ip -p $port"
+}
+
+#Changes cuurent tab name
+function cname()
+{
+	name="$1"
+	session_id=`$YAKUAKE /yakuake/sessions activeSessionId`
+	$YAKUAKE /yakuake/tabs setTabTitle "${session_id}" "${name}"
+}
+
+function main()
+{
+	cmd=$1
+	shift
+	$cmd ${*}
+}
+
+main ${*}
