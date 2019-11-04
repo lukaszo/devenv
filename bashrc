@@ -110,7 +110,7 @@ PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033
 # golang
 export GOPATH=~/code
 export PATH=$PATH:$GOPATH/bin
-source ~/.gimme/envs/go1.12.4.env
+source ~/.gimme/envs/go1.13.env
 
 # for git
 export VISUAL=vim
