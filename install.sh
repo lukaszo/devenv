@@ -18,6 +18,13 @@ INSTALL_PACKAGES=(
   python3-pip
   virtualenvwrapper
   silversearcher-ag
+  htop
+  iftop
+  iotop
+  ipython3
+  net-tools
+  ethtool
+  pv
 )
 
 
