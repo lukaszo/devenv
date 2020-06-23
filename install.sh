@@ -16,6 +16,7 @@ INSTALL_PACKAGES=(
   curl
   build-essential
   python3-pip
+  python3-neovim
   virtualenvwrapper
   silversearcher-ag
   htop
@@ -58,7 +59,7 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 
 pip3 install pynvim
 vim +PluginInstall +qall
-vim +:GoInstallBinaries +qall
+vim +GoInstallBinaries +qall
 
 # docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -77,7 +78,7 @@ mkdir -p ${GOPATH}/{bin,src,pkg}
 curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
 chmod +x ~/bin/gimme
 ~/bin/gimme "${GO_VERSION}"
-. `pwd`/.gimme/envs/go${GO_VERSION}.env
+. ~/.gimme/envs/go${GO_VERSION}.env
 
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 

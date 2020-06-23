@@ -117,3 +117,13 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 source <(kubectl completion bash)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fzf - fuzzy search
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# dart
+export PATH="$PATH:/usr/lib/dart/bin:$HOME/.pub-cache/bin"
