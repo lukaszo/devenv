@@ -4,7 +4,7 @@ set -e
 set -x
 
 GO_VERSION="1.17"
-GOPATH="`pwd`/code"
+GOPATH="~/code"
 
 INSTALL_PACKAGES=(
   # vim
