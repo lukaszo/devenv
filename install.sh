@@ -4,7 +4,7 @@ set -e
 set -x
 
 GO_VERSION="1.17"
-GOPATH="`pwd`/code"
+GOPATH="~/code"
 
 INSTALL_PACKAGES=(
   # vim
@@ -35,7 +35,7 @@ UNINSTALL_PACKAGES=(
 )
 
 sudo apt update
-sudo apt purge -y "${UNINSTALL_PACKAGES[@]}"
+sudo apt purge -y "${UNINSTALL_PACKAGES[@]}" | true
 sudo apt install -y "${INSTALL_PACKAGES[@]}"
 
 # bash
