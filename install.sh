@@ -35,7 +35,7 @@ UNINSTALL_PACKAGES=(
 )
 
 sudo apt update
-sudo apt purge -y "${UNINSTALL_PACKAGES[@]}"
+sudo apt purge -y "${UNINSTALL_PACKAGES[@]}" | true
 sudo apt install -y "${INSTALL_PACKAGES[@]}"
 
 # bash
@@ -43,7 +43,7 @@ mkdir -p ~/.bash
 mkdir -p ~/bin
 
 rm -rf ~/.bash/git-aware-prompt
-git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt
+git clone https://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt
 
 if [[ ! -v SKIP_YAK ]];then
   cp `pwd`/yak ~/bin
@@ -89,5 +89,9 @@ chmod +x ~/bin/kubectl
 
 GO111MODULE="on" go get sigs.k8s.io/kind@v0.5.1
 curl -L https://git.io/get_helm.sh | bash
+
+# rust
+curl https://sh.rustup.rs -sSf | bash -s -- -y
+
 
 # TODO: bashrc

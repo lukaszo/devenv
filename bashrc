@@ -110,7 +110,7 @@ PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033
 # golang
 export GOPATH=~/code
 export PATH=$PATH:$GOPATH/bin
-source ~/.gimme/envs/go1.16.env
+source ~/.gimme/envs/go1.17.env
 
 # for git
 export VISUAL=vim
@@ -129,11 +129,12 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 export PATH="$PATH:/usr/lib/dart/bin:$HOME/.pub-cache/bin"
 
 # local
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
 
 complete -C /home/slm/.local/bin/terraform terraform
 . "$HOME/.cargo/env"
 
 # asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
+
