@@ -3,7 +3,7 @@
 set -e
 set -x
 
-GO_VERSION="1.13"
+GO_VERSION="1.17"
 GOPATH="`pwd`/code"
 
 INSTALL_PACKAGES=(
