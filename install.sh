@@ -26,6 +26,7 @@ INSTALL_PACKAGES=(
   net-tools
   ethtool
   pv
+  fzf
 )
 
 
